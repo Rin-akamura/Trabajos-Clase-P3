@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<!--Fondo de la ventana -->
+<BorderPane xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #87eee7cf;">
+    <!-- Encabezado: Titulo del Formulario -->
+    <top>
+        <HBox  style="-fx-background-color: #ffffff42; -fx-border-color: #b2e8ffcb; -fx-background-insets: 0 150 0 150; -fx-border-insets: 0 150 0 150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 15, 0.25, 4, 4);" alignment="CENTER">
+            <children>
+                <Label text= "REGISTRO DE VISITANTES" style= "-fx-font-weight: bold; -fx-font-size: 16;" alignment="CENTER" prefHeight="100" prefWidth="400"/>
+            </children>
+        </HBox>
+    </top>
+
+    <center> 
+        <!--Barra de scroll-->
+        <ScrollPane fitToWidth="true"  hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-background: transparent; -fx-background-color: transparent" maxHeight="600" prefHeight="600">
+            <content> 
+
+                <!--Esta caja me permite tener varios modulos dentro del center. Ya que solo permite tener "un modulo". no se si es correcto, pero se puede engañar con un VBox o un HBox dependiendo de lo que deseas realizar-->
+                <VBox spacing="50" alignment="TOP_CENTER">    
+                    <!--Caja que contiene la hoja del formulario-->
+                    <VBox alignment="CENTER"  maxWidth="900" prefWidth="900" style="-fx-background-color: #e2fff7d7; -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 15, 0.25, 4, 4);" spacing="30"> 
+
+                        <!--Creacion del formulario de registro de visitantes-->
+                        <GridPane hgap="250" vgap="10" alignment="CENTER">
+
+                            <!--Campo de Nombre del visitante para el registro-->
+                            <Label text= "Nombre:" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField style="-fx-background-color: #FFFEFE;-fx-border-color: #000000;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+                            <!--Opciones de Documentos de identidad que se pueden utilizar para comprobar la identidad del visitante-->
+                            <Label text= "Tipo de Documento ID" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <RadioButton text= "Pasaporte" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <RadioButton text= "Cédula" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <RadioButton text= "Carnet" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+
+                            <!--Crea el campo para registrar el numero del documento de identidad-->
+                            <Label text= "No. de Documento" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                            <TextField style="-fx-background-color: #FFFEFE; -fx-border-color: #000000;" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+
+                            <!--Campo para registrar numero de telefono-->
+                            <Label text= "Numero de Telefono" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+                            <TextField style="-fx-background-color: #FFFEFE; -fx-border-color: #000000;" GridPane.rowIndex="10" GridPane.columnIndex="0"/>
+
+                            <!--Campo para registrar a la persona que se desea visitar. Por algo es un registro de visitantes-->
+                            <Label text= "Persona a visitar" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            <TextField style="-fx-background-color: #FFFEFE; -fx-border-color: #000000;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <!--Campo para registrar la fecha en que se esta visitando. Con DatePicker te da la opcion como combobox pero de un calendario y registra la fecha.-->
+                            <Label text= "Fecha de la visita" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            <DatePicker style="-fx-background-color: #FFFEFE; -fx-border-color: #000000;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <!--Campo para registrar el motivo de la visita-->
+                            <Label text= "Motivo de la visita" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                            <TextField style="-fx-background-color: #FFFEFE; -fx-border-color: #000000;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                            <!--Campo para registrar el tipo de visitante usando una caja de opciones (ComboBox)-->
+                            <Label text= "Tipo de Visitante" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                            <ComboBox promptText= "Seleccione una opción" style= "-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #1a1a1a;" GridPane.rowIndex="7" GridPane.columnIndex="1">
+                                <items>
+                                    <!--Esto permite que se seleccione una sola opcion del ComboBox-->
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="Estudiante"/>
+                                        <String fx:value="Padre/Madre"/>
+                                        <String fx:value="Proveedor"/>
+                                        <String fx:value="Invitado"/>
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
+                        </GridPane>
+                        
+                        <!--Caja que contiene los botones-->
+                        <HBox alignment="CENTER" spacing="20">
+                            <Button text="Registrar" style="-fx-background-color: #a7e5f0; -fx-font-weight: bold; -fx-font-size: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 15, 0.25, 4, 4);" alignment="CENTER"/>
+                            <Button text="Cancelar" style="-fx-background-color: #a7e5f0; -fx-font-weight: bold; -fx-font-size: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 15, 0.25, 4, 4);" alignment="CENTER"/>
+                            <Button text="Limpiar" style="-fx-background-color: #a7e5f0; -fx-font-weight: bold; -fx-font-size: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 15, 0.25, 4, 4);" alignment="CENTER"/>
+                        </HBox>
+                    </VBox>
+                    
+                    <!--Lista de visitantes registrados y que accedieron al edificio/empresa/lo que sea-->
+                    <VBox alignment="CENTER" maxWidth="1000" style="-fx-background-color: #E2FFF7;  -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 15, 0.25, 4, 4)">
+                        <!--Titulo de la lista de registro. Tal vez pueda simplificarlo-->
+                        <HBox style="-fx-background-color: #ffffff1f; -fx-border-color: #b2e8ffcb; -fx-background-insets: 0 150 0 150; -fx-border-insets: 0 150 0 150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 15, 0.25, 4, 4)" alignment="CENTER">
+                            <children>
+                                <Label text= "Visitantes Registrados" style= "-fx-font-weight: bold, italics; -fx-font-size: 16; -fx-text-fill: #1a1a1a;" alignment="CENTER" prefHeight="100" prefWidth="400"/>
+                            </children>
+                        </HBox>
+                        <ListView style="-fx-background-color: #d2feff; -fx-border-color: #000000; -fx-background-insets: 0 150 0 150; -fx-border-insets: 0 150 0 150; -fx-background-radius: 10; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 15, 0.25, 4, 4)" prefHeight="200" prefWidth="400">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Visitante 1"/>
+                                    <String fx:value="Visitante 2"/>
+                                    <String fx:value="Visitante 3"/>
+                                    <String fx:value="Visitante 4"/>
+                                </FXCollections>
+                            </items>
+                        </ListView>
+                    </VBox>
+                        
+                        
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>
