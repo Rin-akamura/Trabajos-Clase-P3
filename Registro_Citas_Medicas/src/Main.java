@@ -19,7 +19,7 @@ public class Main extends Application{
             stage.show();
 
         }catch(Exception e){
-            System.out.println("Error al abrir la Aplicacion: " + e.getMessage());
+            System.out.println("Error contundente al abrir la Aplicacion: " + e.getMessage());
         }
     }
 }
