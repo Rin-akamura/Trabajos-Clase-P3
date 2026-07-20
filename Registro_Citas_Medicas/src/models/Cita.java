@@ -1,6 +1,5 @@
 package models;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Cita {
@@ -11,11 +10,11 @@ public class Cita {
     private String Medico;
     private String Especialidad;
     private Date FechaCita;
-    private LocalDate Hora;
+    private String Hora;
     private String MotivoConsulta;
     private String Estado;
 
-    public Cita (String codigo, String NombrePaciente, int cedula, int telefono, String medico, String Especialidad, Date FechaCita, LocalDate hora, String motivo, String estado){
+    public Cita (String codigo, String NombrePaciente, int cedula, int telefono, String medico, String Especialidad, Date FechaCita, String hora, String motivo, String estado){
         this.Codigo = codigo;
         this.NombrePaciente = NombrePaciente;
         this.Cedula = cedula;
@@ -56,7 +55,7 @@ public class Cita {
         return FechaCita;
     }
 
-    public LocalDate getHora() {
+    public String getHora() {
         return Hora;
     }
 
