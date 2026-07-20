@@ -6,7 +6,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.time.LocalDate;
 import java.util.Date;
 
 import models.Cita;
@@ -42,7 +41,6 @@ public class Archivo {
 
                 DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-                LocalDate hora = LocalDate.parse(partes[7], formato);
                 Date fecha = (Date) formato.parse(partes[6]);
 
 
@@ -55,7 +53,7 @@ public class Archivo {
                         partes[4],
                         partes[5],
                         fecha,
-                        hora,
+                        partes[7],
                         partes[8],
                         partes[9]
                     );
